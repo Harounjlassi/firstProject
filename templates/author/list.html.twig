@@ -1,0 +1,24 @@
+ La longueur du tableau est  {{ auth|length }}
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Picture</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>nb_books</th>
+      <th>Detail</th>
+  </tr>
+  {% for a in auth %}
+    <tr>
+      <td>{{a.id}}</td>
+      <td>{{a.picture}}</td>
+      <td>{{a.username |upper}}</td>
+      <td>{{a.email}}</td>
+      <td>{{a.nb_books}}</td>
+        <td><a href="{{path('show',{'i':a.id,'u':a.username})}}">Detail</a></td>
+    </tr>
+    {% else %}
+    <i>Tableau NOT FOUND</i>
+
+  {%endfor%}
+</table>
