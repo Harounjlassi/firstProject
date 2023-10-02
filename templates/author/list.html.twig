@@ -15,7 +15,7 @@
       <td>{{a.username |upper}}</td>
       <td>{{a.email}}</td>
       <td>{{a.nb_books}}</td>
-        <td><a href="{{path('show',{'i':a.id,'u':a.username})}}">Detail</a></td>
+        <td><a href="{{path('showAuth',{'i':a.id})}}">Detail</a></td>
     </tr>
     {% else %}
     <i>Tableau NOT FOUND</i>
