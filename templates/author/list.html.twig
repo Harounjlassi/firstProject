@@ -2,23 +2,27 @@
 <table border="1">
   <tr>
     <th>Id</th>
-    <th>Picture</th>
     <th>Username</th>
+    {# <th>Picture</th> #}
     <th>Email</th>
-    <th>nb_books</th>
-      <th>Detail</th>
+    {# <th>nb_books</th> #}
+    <th>Detail</th>
+    <th>Delete</th>
   </tr>
   {% for a in auth %}
     <tr>
       <td>{{a.id}}</td>
-      <td>{{a.picture}}</td>
+      {# { <td>{{a.picture}}</td> #}
       <td>{{a.username |upper}}</td>
-      <td>{{a.email}}</td>
-      <td>{{a.nb_books}}</td>
+       <td>{{a.email}}</td>
+      {# { <td>{{a.nb_books}}</td> #}
         <td><a href="{{path('showAuth',{'i':a.id})}}">Detail</a></td>
-    </tr>
+        <td><a href="{{path('deleteAuth',{'i':a.id})}}">Delete</a></td>
+
+    </tr> 
+    {# } } #}
     {% else %}
     <i>Tableau NOT FOUND</i>
 
-  {%endfor%}
+  {% endfor %}
 </table>

@@ -8,17 +8,29 @@
     </ol>
   {% endif %}
 {% endfor %}  #}
-{% set matchingAuthor = authers|filter(auth => auth.id == id)|first %}
+{# {% set matchingAuthor = authers|filter(auth => auth.id == id)|first %}
 
-  {% if matchingAuthor is not null %}
-    <ol>
-      <li>L id de authers est {{ matchingAuthor.id }}</li>
-      <li>le username  de authers est {{ matchingAuthor.username }}</li>
+  <ol>
+    {% if matchingAuthor is not empty %}
+      <li>L'id de l'auteur est {{ matchingAuthor.id }}</li>
+      <li>Le nom d'utilisateur de l'auteur est {{ matchingAuthor.username }}</li>
       <img src='{{ matchingAuthor.picture }}' alt="">
-    </ol>
-  {% endif %}
+    {% else %}
+      <li>Aucun auteur trouvé pour l'ID spécifié</li>
+    {% endif %}
+  </ol> #}
+  
+{# {% set matchingAuthors = authers|filter(auth => auth.id == id) %}
+  <ol>
+      {% for matchingAuthor in matchingAuthors %}
+        <li>L'id de l'auteur est {{ matchingAuthor.id }}</li>
+        <li>Le nom d'utilisateur de l'auteur est {{ matchingAuthor.username }}</li>
+        <img src='{{ matchingAuthor.picture }}' alt="">
+      {% endfor %}
+  
+  </ol>
   {% set sum = authers | reduce((carry, item) => carry + item.nb_books, 0) %}
-
-    {# Output the sum #}
-    {{ sum }}
+    {{ sum }} #}
+    <li>L id de authers est {{auth.id}}</li>
+    <li>le username  de authers est {{auth.username}}</li>
     
